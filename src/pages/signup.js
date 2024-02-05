@@ -12,7 +12,7 @@ export default function Signup() {
   const [email, setEmail] = useState([]);
   const [passport, setPassport] = useState("");
   const [rePassport, setRePassport] = useState("");
-  const [isPassportMatch, setIsPassportMatch] = useState(false);
+  const [isPassportMatch, setIsPassportMatch] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -24,15 +24,16 @@ export default function Signup() {
       alert(error.message);
     }
   };
+
   const handleInputChange = (e) => {
+    console.log("e.target.value", e.target.value);
+    console.log("e.target.name", e.target.name);
     const value = e.target.value;
     if (e.target.name === "passport") {
-      setPassport(value);
+      setPassport(value, () => setIsPassportMatch(value === rePassport));
     } else if (e.target.name === "rePassport") {
-      setRePassport(value);
+      setRePassport(value, () => setIsPassportMatch(passport === value));
     }
-
-    setIsPassportMatch(passport === rePassport);
   };
 
   const createData = async () => {
