@@ -1,10 +1,17 @@
 import { Inter } from "next/font/google";
 import { Logo } from "@/components/svg images/Logo";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const BASE_URL = "http://localhost:8080";
+
+// const [toggle, setToggle] = useState(false);
+
+// const add = () => {
+//   setToggle(!toggle);
+// };
 
 export default function Records() {
   return (
@@ -25,8 +32,10 @@ export default function Records() {
       <main className="flex max-w-[1440px] h-screen gap-6">
         <aside className="w-[25%] card py-6 px-4 shadow-lg">
           <p className="text-2xl font-semibold w-1/3">Records</p>
-          <button className="h-8 rounded-lg mt-7 bg-[#0166FF] text-white">
-            {" "}
+          <button
+            // onClick={() => add()}
+            className="h-8 rounded-lg mt-7 bg-[#0166FF] text-white"
+          >
             + Add
           </button>
           <input
@@ -35,7 +44,47 @@ export default function Records() {
             className="h-8 mt-7 input input-bordered w-full max-w-xs"
           />
           <div>
-            <p>Types</p>
+            <p className="font-semibold py-6">Types</p>
+            <div className="form-control">
+              <label className="label cursor-pointer">
+                <input type="checkbox" className="checkbox" />
+                <span className="label-text">All</span>
+              </label>
+              <label className="label cursor-pointer">
+                <input type="checkbox" className="checkbox" />
+                <span className="label-text">Income</span>
+              </label>
+              <label className="label cursor-pointer">
+                <input type="checkbox" className="checkbox" />
+                <span className="label-text">Expense</span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <p className="font-semibold py-6">Category</p>
+            <div>
+              <p>Food & Drinks</p>
+              <p>Shopping</p>
+              <p>Housing</p>
+              <p>Transportation</p>
+              <p>Vehicle</p>
+              <p>Life & Entertainment</p>
+            </div>
+          </div>
+          <div>
+            <p className="font-semibold py-6">Amount Range</p>
+            <div className="flex gap-1">
+              <input
+                type="text"
+                placeholder="0"
+                className="input input-bordered w-full max-w-xs"
+              />
+              <input
+                type="text"
+                placeholder="100"
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
           </div>
         </aside>
         <aside className="w-[75%]">

@@ -13,7 +13,8 @@ export default function Home() {
       <div className="flex h-[72px] justify-between items-center mb-8 shadow-xl px-3 rounded-lg">
         <div className="flex gap-5">
           <Logo />
-          <a className="font-semibold">Dashboard</a> <a href="/records">Records</a>
+          <a className="font-semibold">Dashboard</a>{" "}
+          <a href="/records">Records</a>
         </div>
         <div className="flex gap-5 items-center">
           <button className="btn">+ Record</button>
@@ -22,7 +23,7 @@ export default function Home() {
       </div>
       <div className="h-[220px] flex justify-between">
         <div className="card w-96 shadow-xl bg-[#1C64F2] text-[#FFF] flex flex-col items-stretch">
-          <div className="card-body flex flex-col justify-between">
+          <div className="card-body max-w-sm min-w-40 flex flex-col justify-between">
             <div className="flex gap-2 items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

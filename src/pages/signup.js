@@ -47,6 +47,7 @@ export default function Signup() {
         email,
         passport,
       };
+      console.log("newUser", newUser);
       try {
         const res = await fetch(BASE_URL + "/users", {
           method: "POST",
