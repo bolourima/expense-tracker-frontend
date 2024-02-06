@@ -56,7 +56,7 @@ export default function Signup() {
         });
         if (res.ok) alert("Successfully Created User");
       } catch (error) {
-        alert("ERROR: " + error.message);
+        alert("ERROR BOL: " + error.message);
       }
     } else return alert("The password must be the same as before");
   };
@@ -104,12 +104,14 @@ export default function Signup() {
               className="input bg-[#F3F4F6]"
               placeholder="Re-passport"
             />
-            <button
-              onClick={() => createData()}
-              className="btn bg-[#0166FF] text-white"
-            >
-              Sign up
-            </button>
+            <a href="/currency">
+              <button
+                onClick={() => createData()}
+                className="btn bg-[#0166FF] text-white"
+              >
+                Sign up
+              </button>
+            </a>
           </div>
           <div className="flex justify-center">
             <p>Already have account?</p>

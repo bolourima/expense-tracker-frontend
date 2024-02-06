@@ -1,21 +1,18 @@
 import { Inter } from "next/font/google";
 import { Logo } from "@/components/svg images/Logo";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
-import { useState } from "react";
+import {
+  ModalProvider,
+  Modal,
+  useModal,
+  ModalTransition,
+} from "react-simple-hook-modal";
+import "react-simple-hook-modal/dist/styles.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
-const BASE_URL = "http://localhost:8080";
-
-// const [toggle, setToggle] = useState(false);
-
-// const add = () => {
-//   setToggle(!toggle);
-// };
-
-export default function Records() {
+function Records() {
+  const { isModalOpen, openModal, closeModal } = useModal();
   return (
-    <div className="w-screen max-w-[1440px] m-auto px-[120px]">
+    <div className="relative w-screen max-w-[1440px] m-auto px-[120px]">
       <div className="flex h-[72px] justify-between items-center mb-8 shadow-xl px-3 rounded-lg">
         <div className="flex gap-5">
           <Logo />
@@ -33,11 +30,23 @@ export default function Records() {
         <aside className="w-[25%] card py-6 px-4 shadow-lg">
           <p className="text-2xl font-semibold w-1/3">Records</p>
           <button
-            // onClick={() => add()}
+            onClick={openModal}
             className="h-8 rounded-lg mt-7 bg-[#0166FF] text-white"
           >
             + Add
           </button>
+          <Modal
+            id="any-unique-identifier"
+            isOpen={isModalOpen}
+            transition={ModalTransition.BOTTOM_UP}
+          >
+            <div className="flex justify-between font-semibold">
+              <p className="text-xl">Add Record</p>
+              <button className="text-xl" onClick={closeModal}>
+                x
+              </button>
+            </div>
+          </Modal>
           <input
             type="text"
             placeholder="Search"
@@ -111,3 +120,9 @@ export default function Records() {
     </div>
   );
 }
+const App = () => (
+  <ModalProvider>
+    <Records />
+  </ModalProvider>
+);
+export default App;
