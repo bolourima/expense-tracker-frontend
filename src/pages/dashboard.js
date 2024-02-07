@@ -4,6 +4,7 @@ import { LogoWhite } from "@/components/svg images/LogoWhite";
 import { GreenDot } from "@/components/svg images/GreenDot";
 import { BlueDot } from "@/components/svg images/Bluedot";
 import { Upsum } from "@/components/svg images/Upsum";
+import { OpenModal } from "@/components/OpenModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +20,13 @@ export default function Dashboard() {
           <a href="/records">Records</a>
         </div>
         <div className="flex gap-5 items-center">
-          <button className="btn">+ Record</button>
-          <p>IMG</p>
+          <button
+            onClick={() => document.getElementById("my_modal_1").showModal()}
+            className="btn"
+          >
+            + Record
+          </button>
+          <OpenModal />
         </div>
       </div>
       <div className="h-[220px] flex justify-between">

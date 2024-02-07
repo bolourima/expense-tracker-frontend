@@ -1,16 +1,10 @@
 import { Inter } from "next/font/google";
 import { Logo } from "@/components/svg images/Logo";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
-import {
-  ModalProvider,
-  Modal,
-  useModal,
-  ModalTransition,
-} from "react-simple-hook-modal";
-import "react-simple-hook-modal/dist/styles.css";
+import { PlusIcon } from "@/components/svg images/PlusIcon";
+import { OpenModal } from "@/components/OpenModal";
 
-function Records() {
-  const { isModalOpen, openModal, closeModal } = useModal();
+export default function Records() {
   return (
     <div className="relative w-screen max-w-[1440px] m-auto px-[120px]">
       <div className="flex h-[72px] justify-between items-center mb-8 shadow-xl px-3 rounded-lg">
@@ -22,7 +16,12 @@ function Records() {
           </a>
         </div>
         <div className="flex gap-5 items-center">
-          <button className="btn">+ Record</button>
+          <button
+            onClick={() => document.getElementById("my_modal_1").showModal()}
+            className="btn"
+          >
+            + Record
+          </button>
           <p>IMG</p>
         </div>
       </div>
@@ -30,23 +29,15 @@ function Records() {
         <aside className="w-[25%] card py-6 px-4 shadow-lg">
           <p className="text-2xl font-semibold w-1/3">Records</p>
           <button
-            onClick={openModal}
-            className="h-8 rounded-lg mt-7 bg-[#0166FF] text-white"
+            className="btn bg-[#0166FF] text-white mt-4"
+            onClick={() => document.getElementById("my_modal_1").showModal()}
           >
             + Add
           </button>
-          <Modal
-            id="any-unique-identifier"
-            isOpen={isModalOpen}
-            transition={ModalTransition.BOTTOM_UP}
-          >
-            <div className="flex justify-between font-semibold">
-              <p className="text-xl">Add Record</p>
-              <button className="text-xl" onClick={closeModal}>
-                x
-              </button>
-            </div>
-          </Modal>
+
+          <div>
+            <OpenModal />
+          </div>
           <input
             type="text"
             placeholder="Search"
@@ -120,9 +111,3 @@ function Records() {
     </div>
   );
 }
-const App = () => (
-  <ModalProvider>
-    <Records />
-  </ModalProvider>
-);
-export default App;

@@ -104,14 +104,12 @@ export default function Signup() {
               className="input bg-[#F3F4F6]"
               placeholder="Re-passport"
             />
-            <a href="/currency">
-              <button
-                onClick={() => createData()}
-                className="btn bg-[#0166FF] text-white"
-              >
-                Sign up
-              </button>
-            </a>
+            <button
+              onClick={() => createData()}
+              className="btn bg-[#0166FF] text-white"
+            >
+              Sign up
+            </button>
           </div>
           <div className="flex justify-center">
             <p>Already have account?</p>
