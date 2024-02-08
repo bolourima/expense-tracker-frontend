@@ -26,8 +26,8 @@ export default function Signup() {
   };
 
   const handleInputChange = (e) => {
-    console.log("e.target.value", e.target.value);
-    console.log("e.target.name", e.target.name);
+    // console.log("e.target.value", e.target.value);
+    // console.log("e.target.name", e.target.name);
     const value = e.target.value;
     if (e.target.name === "passport") {
       setPassport(value, () => setIsPassportMatch(value === rePassport));

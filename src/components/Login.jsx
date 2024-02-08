@@ -5,46 +5,15 @@ import { Logo } from "./svg images/Logo";
 const BASE_URL = "http://localhost:8080";
 
 export const Login = () => {
-  const [users, setUsers] = useState([]);
-  const [email, setEmail] = useState([]);
-  const [passport, setPassport] = useState([]);
 
-  const fetchData = async () => {
-    try {
-      const res = await fetch(BASE_URL + "/users");
-      const data = await res.json();
+  // const router
 
-      setUsers(data);
-    } catch (error) {
-      alert(error.message);
-    }
-  };
 
-  const createData = async () => {
-    if (!email || !passport) {
-      return alert("Email and Passport are required");
-    }
+  
+  
 
-    const newUser = {
-      name,
-      email,
-      passport,
-    };
-    try {
-      const res = await fetch(BASE_URL + "/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newUser),
-      });
-      if (res.ok) alert("Successfully Created User");
-    } catch (error) {
-      alert("ERROR: " + error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+           
+   
   return (
     <main className="w-full h-screen flex">
       <div className="w-1/2 flex justify-center items-center">
