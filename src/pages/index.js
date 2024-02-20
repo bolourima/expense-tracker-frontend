@@ -7,10 +7,6 @@ const inter = Inter({ subsets: ["latin"] });
 const BASE_URL = "http://localhost:8080";
 
 export default function Home() {
-
-  return (
-    <main>
-      {/* <Login /> */}
-    </main>
-  );
+  console.log("main");
+  return <main>{/* <Login /> */}</main>;
 }
