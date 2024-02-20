@@ -8,5 +8,6 @@ const BASE_URL = "http://localhost:8080";
 
 export default function Home() {
   console.log("test branch");
+  console.log("main");
   return <main>{/* <Login /> */}</main>;
 }
