@@ -10,12 +10,10 @@ export const OpenModal = () => {
             <h3>Add Record</h3>
             <div className="modal-action ">
               <form className="flex pb-6" method="dialog">
-                {/* if there is a button, it will close the modal */}
                 <button>X</button>
               </form>
             </div>
           </div>
-
           <div className="flex gap-4">
             <div className="w-1/2 flex flex-col gap-4">
               <div className="flex">
@@ -27,7 +25,11 @@ export const OpenModal = () => {
 
               <div className="bg-[#F3F4F6] p-3 rounded-md">
                 <label>Amount</label>
-                <input className="bg-[#F3F4F6]" type="number" placeholder="000,000"></input>
+                <input
+                  className="bg-[#F3F4F6]"
+                  type="number"
+                  placeholder="000,000"
+                ></input>
               </div>
               <select className="select select-bordered w-full max-w-xs">
                 <option disabled selected>

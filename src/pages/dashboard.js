@@ -6,9 +6,7 @@ import { BlueDot } from "@/components/svg images/Bluedot";
 import { Upsum } from "@/components/svg images/Upsum";
 import { OpenModal } from "@/components/OpenModal";
 
-const inter = Inter({ subsets: ["latin"] });
-
-const BASE_URL = "http://localhost:8080";
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Dashboard() {
   return (
