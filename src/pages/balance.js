@@ -1,10 +1,12 @@
 import { Inter } from "next/font/google";
 import { Logo } from "@/components/svg images/Logo";
 import { Geld } from "@/components/svg images/Geld";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Balance() {
+  const router = useRouter();
   return (
     <main className="w-full h-screen flex flex-col justify-center items-center gap-6">
       <div className="flex items-center gap-2">
@@ -13,10 +15,15 @@ export default function Balance() {
       <div>
         <p className="text-3xl semibold">Set up your cash Balance</p>
       </div>
-    <input className="input bg-slate-50" placeholder="cash"></input>
+      <input className="input bg-slate-50" placeholder="cash"></input>
       <p>How much cash do you have in your wallet?</p>
       <a href="done">
-          <button className="btn bg-[#0166FF]">Confirm</button>
+        <button
+          className="btn bg-[#0166FF]"
+          onClick={() => router.push("/done")}
+        >
+          Confirm
+        </button>
       </a>
     </main>
   );

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Geld } from "./svg images/Geld";
-import { Logo } from "./svg images/Logo";
+
 import { useRouter } from "next/router";
+import { Logo } from "@/components/svg images/Logo";
+import { Geld } from "@/components/svg images/Geld";
 
 const BASE_URL = "http://localhost:8080";
 
-export const Login = () => {
+export default function Login() {
   const router = useRouter();
 
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ export const Login = () => {
           email: email,
           loginPassport: loginPassport,
         };
-        const fetchData = await fetch(BASE_URL, {
+        const fetchData = await fetch(BASE_URL + "/login", {
           method: "POST",
           headers: { "Content-type": "application/json" },
           body: JSON.stringify(input),
@@ -26,7 +27,7 @@ export const Login = () => {
         if (fetchData.status === 201) {
           router.push("./dashboard");
         } else {
-          console.log("error during login");
+          console.log("fetch fail");
           alert("wrong passport or email !");
         }
       } catch (error) {
@@ -34,7 +35,6 @@ export const Login = () => {
       }
     }
   };
-
   return (
     <main className="w-full h-screen flex">
       <div className="w-1/2 flex justify-center items-center">
@@ -75,4 +75,4 @@ export const Login = () => {
       <div className="w-1/2 bg-[#0166FF]"></div>
     </main>
   );
-};
+}

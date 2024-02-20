@@ -1,18 +1,20 @@
 import { Geld } from "@/components/svg images/Geld";
 import { Logo } from "@/components/svg images/Logo";
 import { Inter } from "next/font/google";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 const BASE_URL = "http://localhost:8080";
 
 export default function Signup() {
-  const [users, setUsers] = useState([]);
-  const [name, setName] = useState([]);
-  const [email, setEmail] = useState([]);
+  const [users, setUsers] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [passport, setPassport] = useState("");
   const [rePassport, setRePassport] = useState("");
   const [isPassportMatch, setIsPassportMatch] = useState(true);
+  const router = useRouter();
 
   const fetchData = async () => {
     try {
@@ -54,7 +56,11 @@ export default function Signup() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(newUser),
         });
-        if (res.ok) alert("Successfully Created User");
+
+        if (res.ok) {
+          router.push("/currency");
+        }
+        // alert("Successfully Created User");
       } catch (error) {
         alert("ERROR BOL: " + error.message);
       }

@@ -4,10 +4,12 @@ import { Inter } from "next/font/google";
 import { Waiting } from "@/components/Waiting";
 import { Logo } from "@/components/svg images/Logo";
 import { Geld } from "@/components/svg images/Geld";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Currency() {
+  const router = useRouter();
   return (
     <main className="w-full h-screen flex flex-col justify-center items-center gap-6">
       <div className="flex items-center gap-2">
@@ -22,7 +24,12 @@ export default function Currency() {
         <option>CNY - Chinese Yuan</option>
       </select>
       <a href="/balance">
-        <button className="btn bg-[#0166FF]">Confirm</button>
+        <button
+          className="btn bg-[#0166FF]"
+          onClick={() => router.push("/balance")}
+        >
+          Confirm
+        </button>
       </a>
     </main>
   );
